@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "progetto di esempio",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tommasochiarella/DEV-OPS-EX.git"
+  },
+  "keywords": [
+    "Example",
+    "Docker"
+  ],
+  "author": "Tommaso Chiarella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tommasochiarella/DEV-OPS-EX/issues"
+  },
+  "homepage": "https://github.com/tommasochiarella/DEV-OPS-EX#readme"
+}
