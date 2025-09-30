@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app-dev
+  namespace: web-app-dev # Namespace di riferimento in cui verrà segregato il nostro deployment
+spec:
+  replicas: 3            #indica al ReplicaSet quanti Pod devono esistere.
+  strategy:
+    type: RollingUpdate  #tipologia di strategia
+    rollingUpdate:
+      maxUnavailable: 1  # quanti Pod possono essere non disponibili
+      maxSurge: 1        # quanti Pod extra possono essere creati oltre i replica previsti
+  selector:
+    matchLabels:
+      app: web-app       # seleziona i Pod che gestisce.
+  template:
+    metadata:
+      labels:
+        app: web-app      # descrizione del Pod da replicare (contenitori, immagine, porta, labels).
+    spec:
+      containers:         # lista di container (nel tuo caso 1 container web-app).
+        - name: web-app   # nome del Pod
+          image: host.docker.internal:5000/node-web-app:0.0.1 # immagine da eseguire
+          imagePullPolicy: IfNotPresent                       # Pull dell'immagine se non esiste
+          ports:
+            - containerPort: 8080                             # porta esposta dal container.
